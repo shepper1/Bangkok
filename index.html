@@ -1,0 +1,766 @@
+
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangkok : Éclat Urbain et Sérénité Thaïlandaise </title>
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        template: {
+                            sable: '#F3E5AB',
+                            ocre: '#C66B3D',
+                            roche: '#2D2A26',
+                            ciel: '#4A6C6F',
+                            bg: '#FAFAF9'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { overflow-x: hidden; }
+        
+        /* Ligne verticale de la timeline */
+        .timeline-line {
+            position: absolute;
+            left: 24px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #E5E7EB;
+            z-index: 0;
+        }
+        @media (min-width: 768px) {
+            .timeline-line { left: 50%; margin-left: -1px; }
+        }
+
+        /* Style des cartes Info */
+        .tip-card {
+            border-left: 4px solid #C66B3D;
+            background-color: #FFF7ED;
+        }
+
+        /* Masquer la scrollbar de la nav mobile tout en gardant le scroll */
+        .hide-scroll::-webkit-scrollbar { display: none; }
+        .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-template-bg text-template-roche antialiased">
+
+    <nav id="nav-desktop" class="hidden md:flex fixed top-0 w-full z-50 bg-white/90 backdrop-blur border-b border-gray-200 py-4 px-8 justify-between items-center shadow-sm transition-transform duration-300 -translate-y-full">
+        <a href="#top" class="text-xl font-serif font-bold tracking-widest text-template-roche">Bangkok : Éclat Urbain et Sérénité Thaïlandaise</a>
+        <div class="space-x-6 text-sm font-bold text-gray-600">
+            <a href="#jour-1" class="nav-item-desktop hover:text-template-ocre transition">Le Parcours</a>
+            <a href="#pratique" class="nav-item-desktop hover:text-template-ocre transition">Infos Pratiques</a>
+        </div>
+    </nav>
+
+    <nav id="nav-mobile" class="md:hidden fixed top-0 w-full z-50 bg-white/95 backdrop-blur border-b border-gray-200 py-3 pl-4 overflow-x-auto hide-scroll whitespace-nowrap shadow-md transition-transform duration-300 -translate-y-full">
+        <div class="flex space-x-2 pr-4" id="mobile-menu-container">
+            <a href="#top" class="inline-block px-3 py-1 bg-template-roche text-white rounded-full text-xs font-bold shadow-sm">Top</a>
+            
+                <a href="#jour-1" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J1 Arrivée et Premiers Pas à Bangkok</a>
+            
+                <a href="#jour-2" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J2 Le Cœur Historique au fil de l'eau</a>
+            
+                <a href="#jour-3" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J3 Splendeur Royale et Marchés Animés</a>
+            
+                <a href="#jour-4" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J4 Saveurs de Chinatown et Vie Nocturne</a>
+            
+                <a href="#jour-5" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J5 Shopping et Détente Urbaine</a>
+            
+                <a href="#jour-6" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J6 Marchés Flottants et Ferroviaires</a>
+            
+                <a href="#jour-7" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J7 L'Ancienne Capitale d'Ayutthaya</a>
+            
+                <a href="#jour-8" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J8 Oasis de Verdure et Art Contemporain</a>
+            
+                <a href="#jour-9" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J9 Cours de Cuisine et Marché Local</a>
+            
+                <a href="#jour-10" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J10 Trésors Cachés et Vues Panoramiques</a>
+            
+                <a href="#jour-11" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J11 Spectacle Culturel et Croisière Nocturne</a>
+            
+                <a href="#jour-12" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J12 Sérénité et Spiritualité</a>
+            
+                <a href="#jour-13" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J13 Derniers Achats et Quartier des Arts</a>
+            
+                <a href="#jour-14" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J14 Derniers Moments et Adieux</a>
+            
+                <a href="#jour-15" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J15 Départ de Bangkok</a>
+            
+            <a href="#pratique" class="mobile-link inline-block px-3 py-1 border border-gray-300 text-gray-500 rounded-full text-xs font-bold">Infos</a>
+        </div>
+    </nav>
+
+    <header id="top" class="relative h-[85vh] flex items-center justify-center overflow-hidden pt-12 md:pt-0">
+        
+        <div class="absolute inset-0 bg-black/50 z-10"></div>
+
+        <video autoplay muted loop playsinline 
+               poster="https://images.unsplash.com/photo-1579606946838-6db34433f3c0?q=80&w=2070"
+               class="absolute inset-0 w-full h-full object-cover">
+            <source src="https://videos.pexels.com/video-files/4456988/4456988-hd_1920_1080_25fps.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas la vidéo.
+        </video>
+        
+        <div class="relative z-20 text-center text-white px-4 max-w-3xl animate-fade-in-up">
+            <p class="font-sans text-template-sable tracking-[0.3em] mb-4 uppercase text-sm font-semibold">Feuille de Route</p>
+            <h1 class="font-Playfair italic text-5xl md:text-8xl mb-6 leading-tight drop-shadow-lg">Bangkok</h1>
+            <p class="font-sans text-lg md:text-xl text-gray-100 mb-10 font-light max-w-2xl mx-auto leading-relaxed">Bangkok : Éclat Urbain et Sérénité Thaïlandaise</p>
+            
+            <div class="flex flex-wrap justify-center gap-4 text-sm font-bold mb-10">
+                <span class="bg-white/10 backdrop-blur-md px-5 py-2 rounded-full border border-white/20 shadow-sm">🗓️ 15 jours</span>
+                <span class="bg-white/10 backdrop-blur-md px-5 py-2 rounded-full border border-white/20 shadow-sm">💰 2800€ - 3500€ par personne (vols inclus) / pers</span>
+                <span class="bg-white/10 backdrop-blur-md px-5 py-2 rounded-full border border-white/20 shadow-sm">🛬 Environ 11h - 12h depuis Paris</span>
+            </div>
+
+        </div>
+    </header>
+
+    <section id="itineraire" class="max-w-6xl mx-auto px-4 py-20 relative">
+        
+        <div class="text-center mb-16">
+            <span class="text-template-ocre font-bold tracking-widest text-xs uppercase">Le Roadtrip</span>
+            <h2 class="font-serif text-4xl mt-2 text-template-roche">Votre Programme</h2>
+        </div>
+
+        <div class="relative">
+            <div class="timeline-line"></div>
+            
+            
+                <div id="jour-1" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2">Jour 1</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Arrivée et Premiers Pas à Bangkok</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Après un long vol, l'arrivée à Bangkok est une immersion immédiate dans une atmosphère vibrante. Prenez le temps de vous installer et de faire une première découverte en douceur des environs de votre hôtel. Laissez-vous porter par les sons et les odeurs de la ville qui s'éveille à la nuit tombée.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left">
+                            
+                                <li>🛬 <strong>Arrivée à l'aéroport Suvarnabhumi (BKK)</strong>: Transfert vers votre hôtel et installation. Profitez de ce moment pour vous rafraîchir et vous acclimater au décalage horaire.</li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/shepper1/Bangkok/main/jour1.jpg" class="w-full h-64 object-cover" alt="Jour 1">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">💡 Conseil Arrivée</p>
+                                <p class="text-gray-700">Pour le transfert depuis l'aéroport, privilégiez le Airport Rail Link (Express ou City Line) jusqu'au centre, puis un taxi ou Grab. C'est souvent plus rapide et économique que le taxi direct.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-2" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2">Jour 2</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Le Cœur Historique au fil de l'eau</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Débutez votre exploration par le fleuve Chao Phraya, véritable artère vitale de Bangkok. Les temples emblématiques se révèlent majestueux, offrant un aperçu de la richesse culturelle et spirituelle de la Thaïlande. Laissez-vous charmer par l'ambiance sereine des lieux sacrés.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left">
+                            
+                                <li>🛶 <strong>Traversée du Chao Phraya et Wat Arun</strong>: Prenez un bateau-navette public pour traverser le fleuve et admirer le Temple de l'Aube, Wat Arun, avec ses mosaïques de porcelaine étincelantes au soleil.</li>
+                            
+                                <li>🧘 <strong>Visite du Wat Pho</strong>: Explorez le Wat Pho, célèbre pour son immense Bouddha couché doré et son école de massage traditionnel thaïlandais. C'est un lieu de sérénité et d'histoire.</li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/shepper1/Bangkok/main/jour2.jpg" class="w-full h-64 object-cover" alt="Jour 2">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">👗 Tenue Vestimentaire</p>
+                                <p class="text-gray-700">Pour la visite des temples, prévoyez des vêtements couvrant les épaules et les genoux. Un sarong peut être utile pour les femmes.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🚶 Astuce Transport</p>
+                                <p class="text-gray-700">Les bateaux publics sur le Chao Phraya sont un excellent moyen de se déplacer entre les sites historiques, évitant les embouteillages et offrant de belles vues.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-3" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2">Jour 3</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Splendeur Royale et Marchés Animés</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Plongez au cœur de l'histoire royale thaïlandaise avec la visite du Grand Palais, puis perdez-vous dans l'effervescence des marchés locaux. Une journée contrastée entre la grandeur des rois et l'authenticité de la vie quotidienne des Bangkokois.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left">
+                            
+                                <li>👑 <strong>Exploration du Grand Palais et Wat Phra Kaeo</strong>: Admirez la magnificence du Grand Palais, ancienne résidence royale, et le Temple du Bouddha d'Émeraude, le plus sacré de Thaïlande. Un incontournable pour comprendre l'histoire du royaume.</li>
+                            
+                                <li>🛍️ <strong>Découverte du marché aux fleurs de Pak Khlong Talat</strong>: Imprégnez-vous des couleurs et des parfums de ce marché vibrant, ouvert 24h/24, où les fleurs sont vendues en gros pour les offrandes et les décorations.</li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/shepper1/Bangkok/main/jour3.jpg" class="w-full h-64 object-cover" alt="Jour 3">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">⏰ Meilleur Moment</p>
+                                <p class="text-gray-700">Arrivez tôt au Grand Palais pour éviter la foule et la chaleur intense. La visite peut prendre plusieurs heures.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">💰 Attention aux Arnaques</p>
+                                <p class="text-gray-700">Des rabatteurs peuvent vous dire que le Grand Palais est fermé. Ignorez-les et vérifiez toujours les informations officielles à l'entrée.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-4" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2">Jour 4</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Saveurs de Chinatown et Vie Nocturne</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Aventurez-vous dans le quartier animé de Chinatown, un véritable festin pour les sens. Ses ruelles labyrinthiques regorgent de trésors culinaires et d'une énergie unique. Terminez la journée en beauté en admirant la ville depuis un rooftop bar.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left">
+                            
+                                <li>🍜 <strong>Immersion à Chinatown (Yaowarat)</strong>: Flânez dans les rues de Yaowarat, goûtez aux innombrables spécialités de street food chinoise et thaïlandaise. C'est une expérience culinaire et culturelle inoubliable, surtout en soirée.</li>
+                            
+                                <li>🍸 <strong>Coucher de soleil depuis un Rooftop Bar</strong>: Terminez la journée en sirotant un cocktail dans l'un des célèbres rooftop bars de Bangkok, offrant des vues panoramiques spectaculaires sur la ville illuminée.</li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/shepper1/Bangkok/main/jour4.jpg" class="w-full h-64 object-cover" alt="Jour 4">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🍽️ Expérience Culinaire</p>
+                                <p class="text-gray-700">À Chinatown, ne manquez pas les stands de fruits de mer grillés, les nouilles sautées et les desserts traditionnels comme le 'Bua Loy Nam King' (boulettes de riz gluant au gingembre).</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">📸 Vue Imprenable</p>
+                                <p class="text-gray-700">Les rooftop bars comme le Sky Bar (Lebua at State Tower) ou le Vertigo (Banyan Tree) sont des classiques, mais de nombreux autres offrent des vues tout aussi impressionnantes.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-5" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2">Jour 5</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Shopping et Détente Urbaine</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Explorez les centres commerciaux gigantesques de Bangkok, un paradis pour le shopping et la découverte des dernières tendances. Après l'effervescence, offrez-vous un moment de détente bien mérité avec un massage thaïlandais traditionnel.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left">
+                            
+                                <li>🛍️ <strong>Shopping à Siam Square et MBK Center</strong>: Plongez dans l'univers du shopping thaïlandais, des boutiques de créateurs aux centres commerciaux populaires comme MBK, où l'on trouve de tout, des gadgets électroniques aux souvenirs.</li>
+                            
+                                <li>💆 <strong>Massage Thaïlandais Traditionnel</strong>: Offrez-vous un massage thaïlandais relaxant pour soulager les tensions et recharger vos batteries après plusieurs jours d'exploration intense. Une expérience incontournable pour le corps et l'esprit.</li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/shepper1/Bangkok/main/jour5.jpg" class="w-full h-64 object-cover" alt="Jour 5">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">💸 Négociation</p>
+                                <p class="text-gray-700">Dans les marchés et petits commerces, la négociation est souvent de mise. N'hésitez pas à marchander poliment pour obtenir un meilleur prix.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🧘‍♀️ Bien-être</p>
+                                <p class="text-gray-700">De nombreux salons de massage proposent des services de qualité à des prix très abordables. Le Wat Pho est aussi réputé pour son école de massage.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-6" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2">Jour 6</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Marchés Flottants et Ferroviaires</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Échappez à l'agitation urbaine pour une journée hors du commun. Découvrez l'ingéniosité des marchands sur l'eau et l'incroyable spectacle du marché ferroviaire. Une immersion authentique dans la vie rurale thaïlandaise, pleine de couleurs et de saveurs.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left">
+                            
+                                <li>🛶 <strong>Visite du marché flottant de Damnoen Saduak</strong>: Naviguez à travers ce marché emblématique où les marchands vendent leurs produits directement depuis leurs pirogues. Une expérience visuelle et gustative unique.</li>
+                            
+                                <li>🚂 <strong>Découverte du marché ferroviaire de Maeklong</strong>: Assistez au spectacle fascinant des étals de marché qui se replient en un clin d'œil à l'approche du train, puis se déploient à nouveau une fois qu'il est passé.</li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/shepper1/Bangkok/main/jour6.jpg" class="w-full h-64 object-cover" alt="Jour 6">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">⏰ Conseil Timing</p>
+                                <p class="text-gray-700">Partez tôt le matin pour ces marchés afin d'éviter la foule et de profiter de l'ambiance la plus authentique. Les trains à Maeklong ont des horaires fixes, vérifiez-les à l'avance.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🚌 Transport</p>
+                                <p class="text-gray-700">Ces marchés sont accessibles via des excursions organisées ou en louant un taxi pour la journée. Comptez environ 1h30 de route depuis Bangkok.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-7" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2">Jour 7</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">L'Ancienne Capitale d'Ayutthaya</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Remontez le temps en explorant les vestiges majestueux d'Ayutthaya, l'ancienne capitale du Siam. Ses temples en ruine et ses statues de Bouddha témoignent d'un passé glorieux et offrent un cadre historique et photogénique exceptionnel.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left">
+                            
+                                <li>🚲 <strong>Exploration du Parc Historique d'Ayutthaya</strong>: Louez un vélo pour parcourir les ruines des temples emblématiques comme Wat Mahathat (avec la tête de Bouddha dans les racines d'arbre) et Wat Phra Si Sanphet. Une journée riche en histoire et en culture.</li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/shepper1/Bangkok/main/jour7.jpg" class="w-full h-64 object-cover" alt="Jour 7">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">☀️ Protection Solaire</p>
+                                <p class="text-gray-700">Ayutthaya est en plein air, prévoyez chapeau, lunettes de soleil et crème solaire, ainsi que beaucoup d'eau. La chaleur peut être intense.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🚆 Accès</p>
+                                <p class="text-gray-700">Ayutthaya est facilement accessible en train depuis la gare de Hua Lamphong à Bangkok (environ 1h30 de trajet) ou en bus.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-8" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2">Jour 8</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Oasis de Verdure et Art Contemporain</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Après l'effervescence des jours précédents, offrez-vous une pause dans les poumons verts de Bangkok. Découvrez des espaces de sérénité insoupçonnés et explorez la scène artistique contemporaine de la ville. Une journée pour respirer et s'inspirer.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left">
+                            
+                                <li>🌳 <strong>Détente au Parc Lumphini</strong>: Profitez d'une balade relaxante dans le plus grand parc de Bangkok, observez les varans se prélasser au soleil et les locaux pratiquer le tai-chi. Une véritable bouffée d'air frais au cœur de la ville.</li>
+                            
+                                <li>🎨 <strong>Visite du BACC (Bangkok Art and Culture Centre)</strong>: Explorez les expositions d'art contemporain thaïlandais et international dans ce centre culturel moderne. Une belle occasion de découvrir une autre facette de la créativité locale.</li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/shepper1/Bangkok/main/jour8.jpg" class="w-full h-64 object-cover" alt="Jour 8">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🧘 Activités Matinales</p>
+                                <p class="text-gray-700">Le matin, le parc Lumphini est très animé avec des cours de fitness en plein air et des séances de tai-chi. N'hésitez pas à vous joindre aux locaux.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🖼️ Culture</p>
+                                <p class="text-gray-700">Le BACC propose souvent des expositions gratuites et des événements. Vérifiez leur programme avant votre visite.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-9" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2">Jour 9</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Cours de Cuisine et Marché Local</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Plongez dans les secrets de la gastronomie thaïlandaise en participant à un cours de cuisine. Apprenez à préparer vos plats préférés et découvrez les ingrédients frais et exotiques lors d'une visite de marché. Une expérience interactive et savoureuse.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left">
+                            
+                                <li>🌶️ <strong>Cours de cuisine thaïlandaise</strong>: Apprenez à maîtriser l'équilibre des saveurs aigres, salées, sucrées et épicées. De nombreux cours incluent une visite de marché pour choisir les ingrédients frais.</li>
+                            
+                                <li>🛒 <strong>Exploration d'un marché local (Klong Toey ou Or Tor Kor)</strong>: Accompagnez votre chef ou explorez par vous-même un marché alimentaire local pour découvrir les produits frais, les épices et les fruits exotiques utilisés dans la cuisine thaïlandaise.</li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/shepper1/Bangkok/main/jour9.jpg" class="w-full h-64 object-cover" alt="Jour 9">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">👨‍🍳 Choix du Cours</p>
+                                <p class="text-gray-700">De nombreuses écoles proposent des cours, du plus simple au plus élaboré. Choisissez-en un qui correspond à vos envies et à votre niveau.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🥭 Fruits Exotiques</p>
+                                <p class="text-gray-700">Profitez-en pour goûter des fruits que vous ne trouvez pas en Europe, comme le durian (si vous osez!), le mangoustan ou le ramboutan.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-10" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2">Jour 10</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Trésors Cachés et Vues Panoramiques</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Découvrez des joyaux moins connus de Bangkok, comme le Wat Saket et sa Montagne d'Or, offrant une vue imprenable sur la ville. Terminez la journée en explorant le quartier animé de Sukhumvit, mélange de modernité et de tradition.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left">
+                            
+                                <li>⛰️ <strong>Ascension du Wat Saket (Montagne d'Or)</strong>: Montez les 300 marches jusqu'au sommet de la Montagne d'Or pour profiter d'une vue panoramique à 360 degrés sur Bangkok. Un temple paisible et un point de vue exceptionnel.</li>
+                            
+                                <li>🚶 <strong>Balade dans le quartier de Sukhumvit</strong>: Explorez ce quartier moderne et cosmopolite, connu pour ses centres commerciaux, ses restaurants internationaux et sa vie nocturne animée. Une autre facette de Bangkok.</li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/shepper1/Bangkok/main/jour10.jpg" class="w-full h-64 object-cover" alt="Jour 10">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">👟 Chaussures Confortables</p>
+                                <p class="text-gray-700">Prévoyez des chaussures confortables pour l'ascension du Wat Saket. La vue en vaut la peine!</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🚇 Transports</p>
+                                <p class="text-gray-700">Sukhumvit est très bien desservi par le Skytrain (BTS), ce qui facilite les déplacements dans ce quartier étendu.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-11" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2">Jour 11</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Spectacle Culturel et Croisière Nocturne</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Imprégnez-vous de la richesse de la culture thaïlandaise à travers un spectacle traditionnel. Ensuite, laissez-vous bercer par une croisière sur le Chao Phraya, admirant les monuments illuminés sous un autre angle. Une soirée magique et mémorable.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left">
+                            
+                                <li>🎭 <strong>Spectacle de danse ou de marionnettes traditionnelles</strong>: Assistez à un spectacle culturel comme le Siam Niramit ou le Joe Louis Thai Puppet Theatre pour découvrir les arts scéniques thaïlandais et leurs légendes.</li>
+                            
+                                <li>🚢 <strong>Dîner-croisière sur le Chao Phraya</strong>: Profitez d'un dîner romantique à bord d'une croisière sur le fleuve, admirant les temples et palais illuminés, offrant une perspective différente et féerique de la ville.</li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/shepper1/Bangkok/main/jour11.jpg" class="w-full h-64 object-cover" alt="Jour 11">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🎟️ Réservation</p>
+                                <p class="text-gray-700">Il est conseillé de réserver à l'avance pour les spectacles et les dîners-croisières, surtout en haute saison.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">📸 Ambiance</p>
+                                <p class="text-gray-700">Les croisières offrent une ambiance très agréable et des opportunités de photos uniques des monuments de nuit.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-12" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2">Jour 12</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Sérénité et Spiritualité</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Prenez le temps de vous ressourcer dans un temple moins fréquenté ou de participer à une séance de méditation. Cette journée est dédiée à la tranquillité et à la découverte de la spiritualité thaïlandaise, loin de l'agitation urbaine.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left">
+                            
+                                <li>🧘‍♀️ <strong>Visite du Wat Benchamabophit (Temple de Marbre)</strong>: Admirez l'élégance de ce temple en marbre de Carrare, un chef-d'œuvre de l'architecture thaïlandaise moderne, et profitez de son atmosphère paisible.</li>
+                            
+                                <li>🙏 <strong>Initiation à la méditation ou visite d'un centre de bien-être</strong>: Participez à une courte séance de méditation guidée dans un temple ou offrez-vous un soin dans un spa réputé pour une relaxation profonde.</li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/shepper1/Bangkok/main/jour12.jpg" class="w-full h-64 object-cover" alt="Jour 12">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🤫 Respect</p>
+                                <p class="text-gray-700">Dans les temples, maintenez une attitude respectueuse, parlez doucement et évitez de pointer les statues de Bouddha avec vos pieds.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🌿 Bien-être</p>
+                                <p class="text-gray-700">Bangkok regorge de spas proposant des soins traditionnels et modernes. C'est l'occasion de se faire plaisir à des prix abordables.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-13" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2">Jour 13</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Derniers Achats et Quartier des Arts</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Profitez de cette avant-dernière journée pour vos derniers achats de souvenirs ou pour explorer des quartiers plus alternatifs. Découvrez des galeries d'art indépendantes et des cafés branchés, loin des sentiers battus.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left">
+                            
+                                <li>🛍️ <strong>Shopping de souvenirs à Chatuchak Weekend Market (si weekend) ou Asiatique The Riverfront</strong>: Si c'est un weekend, ne manquez pas l'immense marché de Chatuchak. Sinon, Asiatique The Riverfront offre une ambiance agréable pour le shopping et les repas en soirée.</li>
+                            
+                                <li>🎨 <strong>Exploration du quartier de Charoenkrung Road</strong>: Découvrez ce quartier en pleine effervescence artistique, avec ses galeries d'art, ses cafés branchés et ses fresques murales. Une facette plus contemporaine et bohème de Bangkok.</li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/shepper1/Bangkok/main/jour13.jpg" class="w-full h-64 object-cover" alt="Jour 13">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">⏰ Chatuchak</p>
+                                <p class="text-gray-700">Le marché de Chatuchak est immense et peut être écrasant. Prévoyez un plan et des points de rencontre si vous y allez en groupe. Il est ouvert principalement le samedi et le dimanche.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🚶‍♀️ Découverte</p>
+                                <p class="text-gray-700">Charoenkrung Road est idéal pour une balade à pied, en découvrant des boutiques uniques et des œuvres de street art.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-14" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2">Jour 14</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Derniers Moments et Adieux</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Profitez de cette dernière journée pour revisiter un lieu coup de cœur, faire un dernier massage ou simplement vous imprégner de l'ambiance de Bangkok. Un dîner d'adieu dans un restaurant spécial marquera la fin de votre aventure thaïlandaise.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left">
+                            
+                                <li>🚶 <strong>Balade libre ou revisite d'un lieu coup de cœur</strong>: Prenez le temps de flâner, de vous perdre dans les rues, ou de retourner à un endroit que vous avez particulièrement apprécié pour un dernier souvenir.</li>
+                            
+                                <li>🍽️ <strong>Dîner d'adieu dans un restaurant gastronomique ou local</strong>: Choisissez un restaurant pour un dernier festin thaïlandais, que ce soit un établissement étoilé ou un petit restaurant de quartier authentique.</li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/shepper1/Bangkok/main/jour14.jpg" class="w-full h-64 object-cover" alt="Jour 14">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🎁 Souvenirs</p>
+                                <p class="text-gray-700">N'oubliez pas d'acheter quelques épices, du thé ou des produits artisanaux pour prolonger le voyage une fois rentré chez vous.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">✈️ Préparation</p>
+                                <p class="text-gray-700">Vérifiez les horaires de votre vol et préparez vos bagages pour le départ du lendemain.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-15" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2">Jour 15</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Départ de Bangkok</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">C'est le moment de dire au revoir à la trépidante Bangkok. Après un séjour riche en découvertes et en émotions, il est temps de prendre le chemin de l'aéroport, la tête pleine de souvenirs inoubliables de la Thaïlande.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left">
+                            
+                                <li>🛫 <strong>Transfert vers l'aéroport Suvarnabhumi (BKK) et vol retour</strong>: Selon l'heure de votre vol, profitez d'un dernier petit-déjeuner thaïlandais avant de vous diriger vers l'aéroport pour votre vol de retour vers Paris.</li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/shepper1/Bangkok/main/jour15.jpg" class="w-full h-64 object-cover" alt="Jour 15">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🧳 Bagages</p>
+                                <p class="text-gray-700">Assurez-vous que vos bagages respectent les limites de poids et de taille de votre compagnie aérienne.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">📝 Formalités</p>
+                                <p class="text-gray-700">Prévoyez suffisamment de temps à l'aéroport pour les formalités d'enregistrement et de sécurité.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+    </section>
+
+    <footer id="pratique" class="bg-white border-t border-gray-200 pt-16 pb-10 scroll-mt-24">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10 mb-12">
+            <div>
+                <h4 class="font-serif text-xl mb-4 text-template-roche flex items-center gap-2">
+                    <span>☀️</span> Périodes Idéales
+                </h4>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed">Les périodes idéales pour ce séjour sont les mois de novembre à février.</p>
+                
+            </div>
+            <div>
+                <h4 class="font-serif text-xl mb-4 text-template-roche flex items-center gap-2">
+                    <span>🧳</span> À savoir
+                </h4>
+                <ul class="text-sm text-gray-600 space-y-3">
+
+                        <li><strong>🌡️ :</strong> De novembre à février, les températures sont agréables (25-30°C) et le temps est sec. Prévoir des vêtements légers et respirants.</li>
+                    
+                        <li><strong>💰 :</strong> La monnaie est le Baht Thaïlandais (THB). Les cartes de crédit sont acceptées dans les grands établissements, mais prévoyez du liquide pour les marchés et petits commerces.</li>
+                    
+                        <li><strong>🛂 :</strong> Un visa n'est pas requis pour les séjours de moins de 30 jours pour les citoyens français. Passeport valide 6 mois après la date de retour.</li>
+                    
+                        <li><strong>📶 :</strong> Le réseau Wi-Fi est très développé. Une carte SIM locale (TrueMove H, AIS, Dtac) ou une eSIM est recommandée pour la connectivité mobile.</li>
+                    
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-serif text-xl mb-4 text-template-roche flex items-center gap-2"><span>🔗</span> Liens Utiles</h4>
+                <ul class="text-sm space-y-3">
+                  <li><a href="https://shepper1.github.io/Bangkok/map.html" target="_blank" class="hover:underline flex items-center gap-2"><strong>🗺️ Carte</strong></a></li>
+                    
+                        <li><a href="https://www.tourismthailand.org/fr" target="_blank" class="hover:underline flex items-center gap-2"><strong>📘 Office National du Tourisme de Thaïlande</strong></a></li>
+                    
+                        <li><a href="https://www.railway.co.th/Home/Index" target="_blank" class="hover:underline flex items-center gap-2"><strong>🚆 State Railway of Thailand</strong></a></li>
+                    
+                        <li><a href="https://www.accuweather.com/fr/th/bangkok/318821/weather-forecast/318821" target="_blank" class="hover:underline flex items-center gap-2"><strong>🌤️ Météo Bangkok</strong></a></li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="text-center border-t border-gray-100 pt-8">
+            <p class="font-serif text-2xl text-template-roche mb-2">Bangkok</p>
+            <p class="text-xs text-gray-400">© 2025 - Roadmap</p>
+        </div>
+    </footer>
+
+    <script>
+        // 1. Gestion de l'affichage du menu au scroll
+        const navDesktop = document.getElementById('nav-desktop');
+        const navMobile = document.getElementById('nav-mobile');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                navDesktop.classList.remove('-translate-y-full');
+                navMobile.classList.remove('-translate-y-full');
+            } else {
+                navDesktop.classList.add('-translate-y-full');
+                navMobile.classList.add('-translate-y-full');
+            }
+        });
+
+        // 2. Détection de l'étape active
+        const observerOptions = {
+            root: null,
+            rootMargin: '-40% 0px -60% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const activeId = entry.target.id;
+                    
+                    document.querySelectorAll('.mobile-link').forEach(link => {
+                        const linkHref = link.getAttribute('href').substring(1);
+                        if (linkHref === activeId) {
+                            link.classList.remove('bg-gray-100', 'text-gray-700');
+                            link.classList.add('bg-template-ocre', 'text-white', 'shadow-md');
+                            link.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                        } else {
+                            link.classList.add('bg-gray-100', 'text-gray-700');
+                            link.classList.remove('bg-template-ocre', 'text-white', 'shadow-md');
+                        }
+                    });
+
+                    document.querySelectorAll('.nav-item-desktop').forEach(link => {
+                        const linkHref = link.getAttribute('href').substring(1);
+                        if (activeId.includes('jour') && linkHref === 'jour-1') {
+                            link.classList.add('text-template-ocre');
+                        } else if (activeId === 'pratique' && linkHref === 'pratique') {
+                            link.classList.add('text-template-ocre');
+                        } else {
+                            link.classList.remove('text-template-ocre');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('div[id^="jour-"], footer#pratique').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
